@@ -1,0 +1,38 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.leadfriendly/lead-friendly",
+  "title": "Lead Friendly",
+  "description": "AI phone calls, SMS and CRM records in one Lead Friendly account, compliance-checked on every send",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.leadfriendly.com/mcp",
+  "icons": [
+    {
+      "src": "https://www.leadfriendly.com/logo.png",
+      "mimeType": "image/png",
+      "sizes": ["512x512"]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.leadfriendly.com/api/mcp/v1",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer followed by a Lead Friendly API key (lf_live_...). An account owner or admin creates one under Settings > API keys as Read only, Read + setup or Read + write; a key is only ever shown the tools its access allows.",
+          "isRequired": true,
+          "isSecret": true,
+          "value": "Bearer {api_key}",
+          "variables": {
+            "api_key": {
+              "description": "Your Lead Friendly API key, starting with lf_live_",
+              "isRequired": true,
+              "isSecret": true,
+              "placeholder": "lf_live_..."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
